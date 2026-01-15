@@ -11,7 +11,7 @@ export default function QRCodePage() {
   const businessSlug = "demo-business";
   const businessName = "Demo Business";
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-  const feedbackUrl = `${appUrl}/feedback/${businessSlug}`;
+  const feedbackUrl = `${appUrl.split("http://").join("")}/feedback/${businessSlug}`;
 
   return (
     <div className="min-h-screen bg-gray-50">
