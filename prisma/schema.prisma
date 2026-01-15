@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String     @id @default(cuid())
+  email      String     @unique
+  clerkId    String     @unique
+  businesses Business[]
+  createdAt  DateTime   @default(now())
+}
+
+model Business {
+  id                 String     @id @default(cuid())
+  name               String
+  userId             String
+  user               User       @relation(fields: [userId], references: [id])
+  googlePlaceId      String?
+  googleAccessToken  String?
+  googleRefreshToken String?
+  qrCodeUrl          String?
+  feedbackPageSlug   String     @unique
+  reviews            Review[]
+  feedbacks          Feedback[]
+  createdAt          DateTime   @default(now())
+}
+
+model Review {
+  id               String    @id @default(cuid())
+  businessId       String
+  business         Business  @relation(fields: [businessId], references: [id])
+  platform         String
+  externalId       String
+  authorName       String
+  rating           Int
+  text             String
+  reviewDate       DateTime
+  responded        Boolean   @default(false)
+  aiSuggestedReply String?
+  actualReply      String?
+  repliedAt        DateTime?
+  createdAt        DateTime  @default(now())
+}
+
+model Feedback {
+  id            String   @id @default(cuid())
+  businessId    String
+  business      Business @relation(fields: [businessId], references: [id])
+  sentiment     String
+  customerName  String?
+  customerEmail String?
+  feedbackText  String?
+  wentToGoogle  Boolean  @default(false)
+  createdAt     DateTime @default(now())
+}
