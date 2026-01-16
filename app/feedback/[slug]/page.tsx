@@ -14,20 +14,19 @@ export default function FeedbackPage() {
   const slug = params.slug as string;
   const [step, setStep] = useState<FeedbackStep>("initial");
 
-  // In a real app, we would fetch the business details using the slug
   const businessName = "Demo Business";
-  const googleReviewUrl = "https://www.google.com/maps"; // Placeholder
+  const googleReviewUrl = "https://www.google.com/maps";
 
   if (step === "happy") {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-b from-muted to-background flex items-center justify-center p-4">
         <Card className="max-w-md w-full">
           <CardHeader className="text-center">
             <div className="text-6xl mb-4">🌟</div>
             <CardTitle className="text-2xl">We&apos;re so glad!</CardTitle>
           </CardHeader>
           <CardContent className="text-center space-y-6">
-            <p className="text-gray-600">
+            <p className="text-muted-foreground">
               Would you mind taking a moment to share your experience on Google?
               It really helps us out!
             </p>
@@ -46,7 +45,7 @@ export default function FeedbackPage() {
 
             <Button
               variant="ghost"
-              className="w-full text-gray-500"
+              className="w-full text-muted-foreground"
               onClick={() => setStep("initial")}
             >
               Maybe later
@@ -59,14 +58,14 @@ export default function FeedbackPage() {
 
   if (step === "unhappy") {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-b from-muted to-background flex items-center justify-center p-4">
         <Card className="max-w-md w-full">
           <CardHeader className="text-center">
             <div className="text-6xl mb-4">💬</div>
             <CardTitle className="text-2xl">We want to make it right</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-600 text-center mb-6">
+            <p className="text-muted-foreground text-center mb-6">
               We&apos;re sorry to hear that. Please share your feedback and
               we&apos;ll do our best to improve.
             </p>
@@ -78,13 +77,13 @@ export default function FeedbackPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-b from-muted to-background flex items-center justify-center p-4">
       <Card className="max-w-md w-full">
         <CardHeader className="text-center">
           <CardTitle className="text-2xl">{businessName}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
-          <h2 className="text-xl text-center text-gray-700">
+          <h2 className="text-xl text-center text-muted-foreground">
             How was your experience?
           </h2>
 
@@ -92,7 +91,7 @@ export default function FeedbackPage() {
             <Button
               variant="outline"
               size="lg"
-              className="h-32 flex flex-col items-center justify-center gap-2 hover:bg-green-50 hover:border-green-300"
+              className="h-32 flex flex-col items-center justify-center gap-2 hover:bg-success/10 hover:border-success"
               onClick={() => setStep("happy")}
             >
               <span className="text-5xl">😊</span>
@@ -102,7 +101,7 @@ export default function FeedbackPage() {
             <Button
               variant="outline"
               size="lg"
-              className="h-32 flex flex-col items-center justify-center gap-2 hover:bg-orange-50 hover:border-orange-300"
+              className="h-32 flex flex-col items-center justify-center gap-2 hover:bg-warning/10 hover:border-warning"
               onClick={() => setStep("unhappy")}
             >
               <span className="text-5xl">😐</span>
@@ -110,7 +109,7 @@ export default function FeedbackPage() {
             </Button>
           </div>
 
-          <p className="text-xs text-center text-gray-500">
+          <p className="text-xs text-center text-muted-foreground">
             Your feedback helps us improve our service
           </p>
         </CardContent>

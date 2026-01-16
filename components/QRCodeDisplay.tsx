@@ -22,7 +22,7 @@ export function QRCodeDisplay({ feedbackUrl, businessName }: QRCodeDisplayProps)
           width: 300,
           margin: 2,
           color: {
-            dark: "#1e40af",
+            dark: "#000000",
             light: "#ffffff",
           },
         });
@@ -51,11 +51,11 @@ export function QRCodeDisplay({ feedbackUrl, businessName }: QRCodeDisplayProps)
       </CardHeader>
       <CardContent className="flex flex-col items-center space-y-4">
         {isLoading ? (
-          <div className="w-[300px] h-[300px] flex items-center justify-center bg-gray-100 rounded-lg">
-            <Loader2 className="h-8 w-8 animate-spin text-gray-400" />
+          <div className="w-[300px] h-[300px] flex items-center justify-center bg-muted rounded-lg">
+            <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
           </div>
         ) : (
-          <div className="p-4 bg-white rounded-lg shadow-sm border">
+          <div className="p-4 bg-card rounded-lg shadow-sm border">
             <img
               src={qrCodeDataUrl}
               alt="Feedback QR Code"
@@ -65,10 +65,10 @@ export function QRCodeDisplay({ feedbackUrl, businessName }: QRCodeDisplayProps)
         )}
 
         <div className="text-center space-y-2">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-muted-foreground">
             Customers scan this code to leave feedback
           </p>
-          <p className="text-xs text-gray-500 break-all">{feedbackUrl}</p>
+          <p className="text-xs text-muted-foreground break-all">{feedbackUrl}</p>
         </div>
 
         <Button onClick={handleDownload} disabled={isLoading} className="w-full">
@@ -76,9 +76,9 @@ export function QRCodeDisplay({ feedbackUrl, businessName }: QRCodeDisplayProps)
           Download QR Code
         </Button>
 
-        <div className="bg-blue-50 p-4 rounded-lg w-full">
-          <h4 className="font-medium text-blue-900 mb-2">How to use:</h4>
-          <ol className="text-sm text-blue-800 space-y-1 list-decimal list-inside">
+        <div className="bg-accent p-4 rounded-lg w-full">
+          <h4 className="font-medium text-accent-foreground mb-2">How to use:</h4>
+          <ol className="text-sm text-accent-foreground/80 space-y-1 list-decimal list-inside">
             <li>Print this QR code</li>
             <li>Display it at your checkout or service area</li>
             <li>Happy customers go to Google to leave a review</li>

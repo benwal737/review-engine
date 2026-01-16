@@ -52,11 +52,11 @@ export function FeedbackForm({ businessSlug, onSubmitSuccess }: FeedbackFormProp
   if (isSubmitted) {
     return (
       <div className="text-center py-8">
-        <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">
+        <CheckCircle className="h-16 w-16 text-success mx-auto mb-4" />
+        <h3 className="text-xl font-semibold text-foreground mb-2">
           Thank you for your feedback!
         </h3>
-        <p className="text-gray-600">
+        <p className="text-muted-foreground">
           We appreciate you taking the time to share your experience. We&apos;ll use
           this to improve our service.
         </p>
@@ -69,7 +69,7 @@ export function FeedbackForm({ businessSlug, onSubmitSuccess }: FeedbackFormProp
       <div>
         <label
           htmlFor="feedback"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-medium text-foreground mb-1"
         >
           Tell us about your experience
         </label>
@@ -87,7 +87,7 @@ export function FeedbackForm({ businessSlug, onSubmitSuccess }: FeedbackFormProp
       <div>
         <label
           htmlFor="email"
-          className="block text-sm font-medium text-gray-700 mb-1"
+          className="block text-sm font-medium text-foreground mb-1"
         >
           Email (optional)
         </label>
@@ -99,13 +99,13 @@ export function FeedbackForm({ businessSlug, onSubmitSuccess }: FeedbackFormProp
           placeholder="your@email.com"
           className="w-full"
         />
-        <p className="text-xs text-gray-500 mt-1">
+        <p className="text-xs text-muted-foreground mt-1">
           Leave your email if you&apos;d like us to follow up with you
         </p>
       </div>
 
       {error && (
-        <p className="text-sm text-red-600 bg-red-50 p-2 rounded">{error}</p>
+        <p className="text-sm text-destructive bg-destructive/10 p-2 rounded">{error}</p>
       )}
 
       <Button type="submit" disabled={isSubmitting} className="w-full">

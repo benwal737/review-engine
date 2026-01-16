@@ -56,8 +56,8 @@ export function ReviewCard({
             key={star}
             className={`h-4 w-4 ${
               star <= rating
-                ? "fill-yellow-400 text-yellow-400"
-                : "text-gray-300"
+                ? "fill-warning text-warning"
+                : "text-muted-foreground/30"
             }`}
           />
         ))}
@@ -74,7 +74,7 @@ export function ReviewCard({
   };
 
   return (
-    <Card className={review.responded ? "border-green-200 bg-green-50/30" : ""}>
+    <Card className={review.responded ? "border-success/30 bg-success/8" : ""}>
       <CardHeader className="pb-2">
         <div className="flex items-start justify-between">
           <div>
@@ -92,25 +92,25 @@ export function ReviewCard({
             </div>
           </div>
           {review.responded && (
-            <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
+            <span className="text-xs bg-success/20 text-success px-2 py-1 rounded-full">
               Responded
             </span>
           )}
         </div>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-gray-700">{review.text}</p>
+        <p className="text-sm text-foreground">{review.text}</p>
 
         {review.actualReply && (
-          <div className="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-100">
-            <p className="text-xs font-medium text-blue-700 mb-1">Your Reply:</p>
-            <p className="text-sm text-gray-700">{review.actualReply}</p>
+          <div className="mt-4 p-3 bg-card/50 rounded-lg border border-accent">
+            <p className="text-xs font-medium text-accent-foreground mb-1">Your Reply:</p>
+            <p className="text-sm text-foreground">{review.actualReply}</p>
           </div>
         )}
 
         {showReplyBox && !review.responded && (
           <div className="mt-4 space-y-2">
-            <p className="text-xs font-medium text-gray-500">AI-Generated Reply:</p>
+            <p className="text-xs font-medium text-muted-foreground">AI-Generated Reply:</p>
             <Textarea
               value={editedReply}
               onChange={(e) => setEditedReply(e.target.value)}
